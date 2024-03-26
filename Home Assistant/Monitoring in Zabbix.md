@@ -4,7 +4,7 @@ Monitoring Home Assistant entities in Zabbix via <a href="https://developers.hom
 ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/c2dea0e8-2fd0-430c-a9a8-d8b2a48f5e6f)
 
 ## Home Assistant
-1) Create an Long life access token _(If you don't know how, Google it.)_
+1) Create an Long life access token _(If you don't know how, Google it)_
 ## Zabbix
 Brief overview:
 - Create host
