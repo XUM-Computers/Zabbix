@@ -68,16 +68,6 @@ _Note: This is just one of many possible approaches._
        - type: TRIM
          parameters:
            - '[""]'
-       - type: JAVASCRIPT
-         parameters:
-           - |
-             if (value.includes("unknown")) {
-                 return -100
-             } else if (value.includes("unavailable")) {
-                 return -100
-             } else {
-                 return parseFloat(value)
-             }
      master_item:
        key: ha.states
      tags:
@@ -89,19 +79,7 @@ _Note: This is just one of many possible approaches._
          value: koupelna
    ```
    ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/5298f2ad-d89d-4a44-847e-470a1bdc87f3)
-   ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/e3d8d531-32ef-4649-ad9a-f0d693e51786)
-   #### JavaScript - _Only for numerical values_
-   - The JSON returned from Home Assistant is in String format.
-   - In order to display numerical values in graphs, we need to convert these values to Integer or Float.
-   - HOWEVER, some devices in Home Assistant may occasionally enter the "unknown" or "unavailable" state _(for example, if the battery in a wireless thermometer or button dies)_ - in this case, Zabbix will display an error "Not Supported" _(Value of type "string" is not suitable for value type "Numeric (float)". Value "NaN")_.
-   - This is handled by JavaScript, where if the value "unknown" or "unavailable" is returned, a chosen (arbitrary) number is displayed; in this case, I chose the value -100 _(because this temperature would only occur during an ice age; you can use any number, eg. 999, it's up to you)_
-   
-   ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/3914c2df-977b-4321-80b9-03f4d3ac9a6c)
-   <br>_Note: If you need to return an Integer, use <code>return parseInt(value)</code> and change the Type of information to Numeric(unsigned)_
-   -  We can then convert this number to a human-readable value using Value mapping _(in our case, to "Unknown")_
-
-    ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/6a80dd81-b6e5-428d-8c96-95f3b04f3200)
-
+  
    Congratulations, the values are now displayed in Zabbix.
 
    ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/a9ae4880-bd40-4f8e-9647-5be2026d107b)
