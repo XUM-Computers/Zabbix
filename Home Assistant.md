@@ -42,9 +42,13 @@ _Note: This is just one of many possible approaches._
          value: ha
    ```
    ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/67c15ea2-fc27-42a6-adf0-411b05ccbef8)
-5) Create a macro <code>{$HA_API}</code> with the API key (token)
+
+   - There is no need to store this data in the database, so I recommend set the _History storage time_ to _Do not store history_
+     ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/34e0cc73-efa6-4f30-9629-6c3f18ee03c1)
+
+6) Create a macro <code>{$HA_API}</code> with the API key (token)
    - Administration -> Macros
-6) Create Dependent Items and use Preprocessing to search for a specific entity using JSONPath.
+7) Create Dependent Items and use Preprocessing to search for a specific entity using JSONPath.
    <br>The entity name can be found, for example, in Home Assistant under Developer Tools - States.
 
    Example _(Kitchen thermometer)_:
