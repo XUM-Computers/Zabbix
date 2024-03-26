@@ -51,7 +51,7 @@ _Note: This is just one of many possible approaches._
 7) Create Dependent Items and use Preprocessing to search for a specific entity using JSONPath.
    _<br>The entity name can be found, for example, in Home Assistant under Developer Tools - States._
 
-   Example _(Kitchen thermometer)_:
+   Example _(Bathroom thermometer)_:
    ```
    - name: 'Teplota koupelna'
      type: DEPENDENT
@@ -64,7 +64,7 @@ _Note: This is just one of many possible approaches._
      preprocessing:
        - type: JSONPATH
          parameters:
-           - '$[?(@.entity_id==''sensor.teplota_koupelna_temperature'')].state'
+           - '$[?(@.entity_id=='sensor.teplota_koupelna_temperature')].state'
        - type: TRIM
          parameters:
            - '[""]'
