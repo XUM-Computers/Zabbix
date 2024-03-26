@@ -94,7 +94,7 @@ _Note: This is just one of many possible approaches._
    - The JSON returned from Home Assistant is in String format.
    - In order to display numerical values in graphs, we need to convert these values to Integer or Float.
    - HOWEVER, some devices in Home Assistant may occasionally enter the "unknown" or "unavailable" state _(for example, if the battery in a wireless thermometer or button dies)_ - in this case, Zabbix will display an error "Not Supported" _(Value of type "string" is not suitable for value type "Numeric (float)". Value "NaN")_.
-   - This is handled by JavaScript, where if the value "unknown" or "unavailable" is returned, a chosen (arbitrary) number is displayed; in this case, I chose the value -100 _(because this temperature would only occur during an ice age; you can use, for example, 999, it's up to you)_
+   - This is handled by JavaScript, where if the value "unknown" or "unavailable" is returned, a chosen (arbitrary) number is displayed; in this case, I chose the value -100 _(because this temperature would only occur during an ice age; you can use any number, eg. 999, it's up to you)_
    
    ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/3914c2df-977b-4321-80b9-03f4d3ac9a6c)
    <br>_Note: If you need to return an Integer, use <code>return parseInt(value)</code> and change the Type of information to Numeric(unsigned)_
