@@ -49,7 +49,7 @@ _Note: This is just one of many possible approaches._
 6) Create a macro <code>{$HA_API}</code> with the API key _(Long life access token obtained in the first step from Home Assistant)_
    - Administration -> Macros
 7) Create Dependent Items and use Preprocessing to search for a specific entity using JSONPath.
-   <br>The entity name can be found, for example, in Home Assistant under Developer Tools - States.
+   _<br>The entity name can be found, for example, in Home Assistant under Developer Tools - States._
 
    Example _(Kitchen thermometer)_:
    ```
