@@ -127,10 +127,14 @@ This method involves creating a Template where we create one Master Item and the
       ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/b2bca820-d8f1-45fe-93d3-bb78f286705c)
 
       Macros:
-      - {#DEVICE_CLASS} = serves for filtering entities _(in Filters tab)_
-      - {#ENTITY_ID} = simply the entity ID
-      - {#FRIENDLY_NAME} = friendly name _(which (if) is entered in HA)_
-      - {#UNIT} = the unit of the desired unit
+      - {#DEVICE_CLASS} = $..attributes.device_class.first()
+        - serves for filtering entities _(in Filters tab)_
+      - {#ENTITY_ID} = $..entity_id.first()
+        - simply the entity ID
+      - {#FRIENDLY_NAME} = $..attributes.friendly_name.first()
+        - friendly name _(which (if) is entered in HA)_
+      - {#UNIT} = $..attributes.unit_of_measurement.first()
+        - the unit of the desired unit
      
       Filters:
       - {#DEVICE_CLASS} exist = checks if a device_class exists for the entity _(without that, Zabbix reported errors for Items that don't contain it)_
