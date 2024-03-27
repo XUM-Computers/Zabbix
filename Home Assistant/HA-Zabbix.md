@@ -142,6 +142,25 @@ This method involves creating a Template where we create one Master Item and the
 
      ![image](https://github.com/XUM-Computers/Zabbix/assets/164992171/d9ffabde-e36a-4b17-993f-7b2cd697e137)
 
+     ```
+          item_prototypes:
+              name: '{#FRIENDLY_NAME}'
+              type: DEPENDENT
+              key: 'ha.battery[{#ENTITY_ID}]'
+              delay: '0'
+              value_type: FLOAT
+              units: '{#UNIT}'
+              preprocessing:
+                - type: JSONPATH
+                  parameters:
+                    - '$[?(@.entity_id=="{#ENTITY_ID}")].first()'
+                - type: JSONPATH
+                  parameters:
+                    - $.state
+              master_item:
+                key: ha.states
+     ```
+
 
   
    Congratulations, the values are now displayed in Zabbix.
